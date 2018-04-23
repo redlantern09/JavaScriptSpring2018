@@ -1,4 +1,4 @@
-(function () {
+
     //load all of the script after DOM is created
     // Use this when you are targeting html elements and the script is in the head
     window.onload = function () {
@@ -6,15 +6,22 @@
         function alertMessage(elem) {
             // Show all of the elements properties in the console
             console.log(elem);
-            // Create an alert on the page telling user what button was clicked
+            /**VERY IMPT. TELLS US INFO. TELLS US THE ELEM WE'RE PASSING INTO IT
+            Create an alert on the page telling user what button was clicked
+            WHEN YOU GO TO LOCALHOST AND RT CLICK, INSPECT ELEM, CONSOLE PAGE IS THE LOG
+            */
             alert(elem.srcElement.textContent + " Button was clicked");
         }
+        //ABOVE TELLS US IN A POP UP BOX NUMBER TIMES BUTTON WAS CLICKED
+
         // Retrieve every element with an a tag
         var a = document.getElementsByTagName('a');
         // IMPORTANT - Loop through every element on page to add an event listener to each element
         for (i = 0; i < a.length; i++) {
             // Add a listener that will do the function alertMessage everytime a user clicks on the element
             a[i].addEventListener('click', alertMessage, false);
+            //THE ADDEVENTLIS- ATTACHES A FXN TO SPECIFIC ACTION. SO WHEN YOU CLICK ON SOMETHING
+            //THEN THE FXN, ALERTMESS WILL HAPPEN
         }
 
         // Retrieve every element with the class bookTitle
@@ -25,7 +32,8 @@
             const name = prompt('What is the name of the book?');
             // Create a variable that we will check amount of times user stored data
             let i = 0;
-            //If the user entered an invalid name they have 3 tries to change it
+            //If the user entered an invalid name they have 3 tries to change it. 
+            //IS an ex. of another loop
             while(name.length === 0 || i >3){
                 const name = prompt('What is the name of the book?');
                 i++;
@@ -50,5 +58,13 @@
             // Add an event LIstener to change the text color on every click
             bookTItle[i].addEventListener('click',changeColor);
         }
+        /**
+        Notes: need to change line 59 from changeColor to addNewBook
+        function addNewBook(){
+                Let newBook = new Book();
+                //the built in fxn "new" will assign the variable newBook the fxn defined in your Book.js
+                newBook.promptInformation();
+                console.log(newBook);
+        }
+        */
     }
-})();
